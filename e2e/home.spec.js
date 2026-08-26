@@ -48,4 +48,26 @@ test.describe("Адаптивность интерфейса", () => {
       ).toBeVisible();
     }
   });
+
+  test("Нижняя навигационная панель", async ({ page, isMobile }) => {
+    if (isMobile) {
+      await expect(
+        page.getByRole("navigation", { name: "Нижняя панель" }),
+      ).toBeVisible();
+      await expect(
+        page
+          .getByRole("navigation", { name: "Нижняя панель" })
+          .filter({ has: page.getByRole("button", { name: "Корзина" }) }),
+      ).toBeVisible();
+      await expect(
+        page
+          .getByRole("navigation", { name: "Нижняя панель" })
+          .filter({ has: page.getByRole("button", { name: "Профиль" }) }),
+      ).toBeVisible();
+    } else {
+      await expect(
+        page.getByRole("navigation", { name: "Нижняя панель" }),
+      ).not.toBeVisible();
+    }
+  });
 });

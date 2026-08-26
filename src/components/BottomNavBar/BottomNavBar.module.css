@@ -1,0 +1,35 @@
+.container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  width: 100vw;
+  height: 80px;
+  box-shadow: 0 -10px 10px rgb(0 0 0 / 10%);
+}
+
+.container button {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  background-color: white;
+  border: none;
+}
+
+.container button + button {
+  border-left: 2px solid rgb(0 0 0 / 30%);
+}
+
+.container button:active {
+  background-color: rgb(128 128 128 / 30%);
+}
+
+@media (width >= 768px) {
+  .container {
+    display: none;
+  }
+}
