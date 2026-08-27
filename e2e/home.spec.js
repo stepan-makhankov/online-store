@@ -49,6 +49,42 @@ test.describe("Адаптивность интерфейса", () => {
     }
   });
 
+  test("Футер", async ({ page, isMobile }) => {
+    if (isMobile) {
+      await expect(page.getByRole("contentinfo")).toBeVisible();
+      await expect(
+        page
+          .getByRole("contentinfo")
+          .getByText(
+            "RU: Это учебный проект для портфолио. Магазин не осуществляет реальных продаж. Все названия, логотипы и товары вымышлены. Любое совпадение с реальными брендами случайно.",
+          ),
+      ).toBeVisible();
+      await expect(
+        page
+          .getByRole("contentinfo")
+          .getByText(
+            "EN: This is a portfolio project. The store does not sell any actual products. All names, logos, and products are fictitious. Any resemblance to real brands is purely coincidental.",
+          ),
+      ).toBeVisible();
+    } else {
+      await expect(page.getByRole("contentinfo")).toBeVisible();
+      await expect(
+        page
+          .getByRole("contentinfo")
+          .getByText(
+            "RU: Это учебный проект для портфолио. Магазин не осуществляет реальных продаж. Все названия, логотипы и товары вымышлены. Любое совпадение с реальными брендами случайно.",
+          ),
+      ).toBeVisible();
+      await expect(
+        page
+          .getByRole("contentinfo")
+          .getByText(
+            "EN: This is a portfolio project. The store does not sell any actual products. All names, logos, and products are fictitious. Any resemblance to real brands is purely coincidental.",
+          ),
+      ).toBeVisible();
+    }
+  });
+
   test("Нижняя навигационная панель", async ({ page, isMobile }) => {
     if (isMobile) {
       await expect(
