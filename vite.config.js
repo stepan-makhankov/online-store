@@ -8,6 +8,7 @@ export default defineConfig({
     environment: "happy-dom",
     setupFiles: "./setupTests.js",
     css: true,
+    include: ["**/*.test.jsx"],
   },
   css: {
     modules: {

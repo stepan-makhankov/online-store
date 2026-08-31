@@ -8,6 +8,7 @@ function BottomNavBar() {
         <ShoppingCart size={30} />
         Корзина
       </button>
+
       <button>
         <User size={30} />
         Профиль
